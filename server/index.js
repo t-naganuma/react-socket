@@ -15,6 +15,14 @@ const io = new Server(server, {
   },
 });
 
+io.on("connect", (socket) => {
+  console.log(`User Connected: ${socket.id}`);
+
+  socket.on("send_message", (data) => {
+    socket.broadcast.emit("receive_message", data);
+  });
+});
+
 server.listen(8081, () => {
   console.log("SERVER IS RUNNING");
 });
