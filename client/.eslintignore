@@ -1,0 +1,5 @@
+src/assets
+public
+vite.config.ts
+dist
+assets
